@@ -3,10 +3,7 @@
 {% block title %}Blog{% endblock %}
 {% block primary %}
 	{% for object in latest %}
-		<h2><a href="{{object.get_absolute_url}}">{{ object.title }}</a></h2>
-		<p>{{object.pub_date|date:"d F Y"}}</p>
-		{{ object.body_html|truncatewords_html:"20"|safe }}
-		<p>Tags: {% for tag in object.get_tags%}<a href="/blog/tags/{{tag.name|slugify}}/">{{tag}}</a> {% endfor %}</p>
-		<p><a href="{{object.get_absolute_url}}">Read more...</a></p>
+		<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
+		<p>{{ object.body_html|truncatewords_html:"20"|safe }}</p>
 	{% endfor %}
 {% endblock %}

@@ -17,8 +17,8 @@ urlpatterns = patterns('',
     # (r'^admin/', include(admin.site.urls)),
 
 	(r'^admin/', include(admin.site.urls)),
-	(r'^blog/', include('blog.urls')),
-	(r'^blog/tags/(?P<slug>[a-zA-Z0-9_.-]+)/$', 'tag_views.tag_detail'),
-	(r'^blog/tags/', 'tag_views.all_tags'),
+	(r'^/tags/(?P<slug>[a-zA-Z0-9_.-]+)/$', 'tag_views.tag_detail'),
+	(r'^/tags/', 'tag_views.all_tags'),
 	(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT}),
+    (r'^', include('blog.urls')),
 )

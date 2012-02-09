@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import * 
-from djangoblog.blog.models import Entry  
-from tagging.views import tagged_object_list    
+from blog.models import Entry  
+from tagging.views import tagged_object_list 
+   
 info_dict = {
 	'queryset': Entry.objects.filter(status=1),
 	'date_field': 'pub_date',

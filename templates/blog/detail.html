@@ -5,7 +5,7 @@
 		<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
 	<p>{{ object.body_html|safe }}</p>
 	<p>Tags: {% for tag in object.get_tags%}<a href="/blog/tags/{{tag.name|slugify}}/">{{tag}}</a> {% endfor %}</p>
-	<ul class="page-nav">
+	<ul class="nav">
 		{% if object.get_previous_published%}
 		<li>
 			<a href="{{ object.get_previous_published.get_absolute_url }}" title=" {{object.get_previous_published.title}}">« previous</a>

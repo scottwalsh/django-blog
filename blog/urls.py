@@ -8,9 +8,9 @@ info_dict = {
 }
 
 urlpatterns = patterns('django.views.generic.date_based',
-	(r'(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, slug_field='slug',template_name='blog/detail.html')),
+	(r'(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, slug_field='slug', template_name='blog/detail.html')),
 	(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{1,2})/(?P<slug>[-\w]+)/$', 'object_detail', dict(info_dict, template_name='blog/list.html')),
-	(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{1,2})/$','archive_day',dict(info_dict,template_name='blog/list.html')),
+	(r'^(?P<year>\d{4})/(?P<month>\w{3})/(?P<day>\w{1,2})/$','archive_day',dict(info_dict, template_name='blog/list.html')),
 	(r'^(?P<year>\d{4})/(?P<month>\w{3})/$','archive_month', dict(info_dict, template_name='blog/list.html')),
 	(r'^(?P<year>\d{4})/$','archive_year', dict(info_dict, template_name='blog/list.html')),
 	(r'^$','archive_index', dict(info_dict, template_name='blog/list.html')),

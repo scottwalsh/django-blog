@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block pagetitle %}{{object.title}}{% endblock %}
+{% block title %}{{object.title}}{% endblock %}
+{% block primary %}
+<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
+<p>{{ object.body_html|safe }}</p>
+{% endblock %}

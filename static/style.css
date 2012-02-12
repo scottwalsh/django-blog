@@ -50,6 +50,7 @@ h2 {
 .date {
     float: right;
     width: 25%;
+    min-width:180px;
     text-align: right; 
 }
 

@@ -2,21 +2,8 @@
 {% block pagetitle %} - Listing{% endblock %}
 {% block title %}Blog{% endblock %}
 {% block primary %}
-
-    {# index #}
-	{% for object in latest %}
-		<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
-		<p>{{ object.body_html|truncatewords_html:"20"|safe }}</p>
-	{% endfor %}
-
-    {# month, day #}
 	{% for object in object_list %}
 		<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
 		<p>{{ object.body_html|truncatewords_html:"20"|safe }}</p>
 	{% endfor %}
-	
-	{# year #}
-	{% for month in date_list %}
-		<ul>{{ month|date:"F" }}</ul>
-    {% endfor %}
 {% endblock %}

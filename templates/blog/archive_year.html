@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block pagetitle %} - Listing{% endblock %}
+{% block title %}Blog{% endblock %}
+{% block primary %}
+	{% for month in date_list %}
+		<ul>{{ month|date:"F" }}</ul>
+    {% endfor %}
+{% endblock %}

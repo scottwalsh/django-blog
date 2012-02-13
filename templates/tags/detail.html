@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
-{% block pagetitle %} - {{object.title}}{% endblock %}
+{% block pagetitle %} - Tag: {{tag}}{% endblock %}
 {% block title %}{{object.title}}{% endblock %}
 {% block primary %}
 
-    {% for object in latest %}
+<p>You searched the blog entries for the tag '<span class="highlight">{{tag}}</span>'.</p>
+{% if object_list %}
+    {% for object in object_list %}
+        <h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
+        {{object.precis|safe|linebreaks}}
+        {% if object.body_html %}
+        {% endif %}
     {% endfor %}
+{% else %}
+    <p>No articles have that tag</p>
+{% endif %}
 
 {% endblock %}

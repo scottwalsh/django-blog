@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block pagetitle %} - Tag Listing{% endblock %}
-{% block title %}Blog{% endblock %}
+{% block title %}Tag{% endblock %}
 {% block primary %}
-	{% for object in latest %}
-		<h2><strong><a href="{{object.get_absolute_url}}">{{ object.title }}</a></strong> <div class="date">{{object.pub_date|date:"d F Y"}}</div></h2>
-		<p>{{ object.body_html|truncatewords_html:"20"|safe }}</p>
-		List execute (woo)
-	{% endfor %}
+    {% load tagging_tags %}
+    {% tag_cloud_for_model blog.Entry as tags with steps=6 min_count=1 distribution=log %}
+    {% for tag in tags %}
+        {{tag.name}} ({{tag.font_size}})
+    {% endfor %}
 {% endblock %}

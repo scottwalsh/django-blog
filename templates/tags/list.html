@@ -5,6 +5,6 @@
     {% load tagging_tags %}
     {% tag_cloud_for_model blog.Entry as tags with steps=6 min_count=1 distribution=log %}
     {% for tag in tags %}
-        {{tag.name}} ({{tag.font_size}})
+        <a href="/tags/{{tag.name|slugify}}/" style="font-size: {{tag.font_size|add:"10"}}px">{{tag.name}}</a>
     {% endfor %}
 {% endblock %}

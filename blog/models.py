@@ -14,11 +14,12 @@ class Entry(models.Model):
 		unique_for_date='pub_date',
 		help_text='Automatically built from the title.'
 	)
-
-	body_html = models.TextField(blank=True)
-	body_markdown = models.TextField() #note, if you're using Markdown, include this field, otherwise just go with body_html
 	pub_date = models.DateTimeField('Date published')
 	tags = TagField()
+		
+	body_html = models.TextField(blank=True)
+	body_markdown = models.TextField() #note, if you're using Markdown, include this field, otherwise just go with body_html
+	
 	enable_comments = models.BooleanField(default=True)
 	PUB_STATUS = (
 		(0, 'Draft'),
